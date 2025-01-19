@@ -1,0 +1,277 @@
+[
+	{
+		"rt": 3245,
+		"main_track": [
+			{
+				"gender": "male",
+				"body_type": "business",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 0,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 2795
+	},
+	{
+		"rt": 8268,
+		"main_track": [
+			{
+				"gender": "female",
+				"body_type": "casual",
+				"skin": "white"
+			},
+			{
+				"gender": "female",
+				"body_type": "elderly",
+				"skin": "brown"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"action": "nothing",
+		"choice": "main",
+		"trial_type": "trolley-problem",
+		"trial_index": 1,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 7819
+	},
+	{
+		"rt": 22700,
+		"main_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "brown"
+			},
+			{
+				"gender": "male",
+				"body_type": "elderly",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"action": "nothing",
+		"choice": "main",
+		"trial_type": "trolley-problem",
+		"trial_index": 2,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 22250
+	},
+	{
+		"rt": 25052,
+		"main_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "male",
+				"body_type": "business",
+				"skin": "white"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 3,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 24602
+	},
+	{
+		"rt": 28283,
+		"main_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			},
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 4,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 27834
+	},
+	{
+		"rt": 30619,
+		"main_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "black"
+			},
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "brown"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 5,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 30170
+	},
+	{
+		"rt": 33924,
+		"main_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			},
+			{
+				"gender": "male",
+				"body_type": "casual",
+				"skin": "white"
+			}
+		],
+		"action": "nothing",
+		"choice": "main",
+		"trial_type": "trolley-problem",
+		"trial_index": 6,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 33474
+	},
+	{
+		"rt": 36556,
+		"main_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			},
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			},
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 7,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 36106
+	},
+	{
+		"rt": 42436,
+		"main_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "brown"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			},
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			},
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "white"
+			}
+		],
+		"action": "nothing",
+		"choice": "main",
+		"trial_type": "trolley-problem",
+		"trial_index": 8,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 41987
+	},
+	{
+		"rt": 45764,
+		"main_track": [
+			{
+				"gender": "male",
+				"body_type": "business",
+				"skin": "white"
+			}
+		],
+		"side_track": [
+			{
+				"gender": "female",
+				"body_type": "pregnant",
+				"skin": "black"
+			}
+		],
+		"action": "flip",
+		"choice": "side",
+		"trial_type": "trolley-problem",
+		"trial_index": 9,
+		"plugin_version": "0.0.5",
+		"time_elapsed": 45314
+	}
+]
