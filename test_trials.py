@@ -2,32 +2,6 @@ import json
 from mlx_lm import load, generate
 
 
-def dummy_csv():
-    experiment = {
-        'description': 'You will be shown several examples of geometric objects.\nYour task is to learn a rule that allows you to tell whether an object belongs to the E or K category.\nFor each presented object, you will be asked to make a category judgment by pressing the corresponding key and then you will receive feedback.\nYou will encounter four different problems with different rules.\n\nYou encounter a new problem with a new rule determining which objects belong to each category:\n',
-        'trials': [
-            {
-                'stimulus': 'You see a big black square. You press <<',
-                'response': 'K',
-                'result': '>>. The correct category is K.'
-            },
-            {
-                'stimulus': 'You see a small black triangle. You press <<',
-                'response': 'K',
-                'result': '>>. The correct category is E'
-            },
-            {
-                'stimulus': 'You see a big white triangle. You press <<',
-                'response': 'E',
-                'result': '>>. The correct category is K.'
-            }
-        ]
-    }
-
-    # Write to jsonl
-    with open('dummy_trial.jsonl', 'w') as f:
-        f.write(json.dumps(experiment))
-
 def load_model(model_path='centaur8b', adapter_path=None):
     model, tokenizer = load(model_path)#, adapter_path=adapter_path)
     return model, tokenizer
@@ -36,7 +10,7 @@ def load_model(model_path='centaur8b', adapter_path=None):
 def test_prompt(model, tokenizer, experiment):
     accuracies = []
     prompt = experiment['description']
-    for i, trial in enumerate(experiment['trials']):
+    for i, trial in enumerate(experiment['trials'][:15]):
         prompt = prompt + '\n' + trial['stimulus']
         print(f"Trial {i + 1}")
         print(f"Prompt: {prompt}")
@@ -60,15 +34,15 @@ def test_trials(participant_json):
     with open(participant_json, 'r') as f:
         participants = json.load(f)
         results = []
-        for participant in participants[:1]:
+        for participant in participants[50:55]:  # TODO only 5 participants for now
             print(f'Experiment: {participant["experiment"]}, Participant: {participant["participant"]}')
             print(f'Description: {participant["description"]}')
             participant_results = {'participant': participant["participant"], 'experiment': participant["experiment"],
                                    'accuracies': test_prompt(model, tokenizer, participant)}
             results.append(participant_results)
 
-    with open('psych101_test_results.json', 'w') as f:
-        f.write(json.dumps(results))
+            with open('psych101_test_results.jsonl', 'a') as fr:
+                fr.write(json.dumps(participant_results) + '\n')
 
 
 
