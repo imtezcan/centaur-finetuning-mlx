@@ -1,0 +1,4 @@
+[{"participant": "0", "experiment": "badham2017deficits/exp1.csv", "accuracies": [true, true, true, false, true]},
+{"participant": "1", "experiment": "badham2017deficits/exp1.csv", "accuracies": [false, false, false, false, true]},
+{"participant": "2", "experiment": "badham2017deficits/exp1.csv", "accuracies": [false, true, false, true]},
+{"participant": "3", "experiment": "badham2017deficits/exp1.csv", "accuracies": [true, true, true, false, true, true, false, true, true, true, true, false, false, true, false, false, false, true, false, true, true, true, true, true, false, false, true, true, false, true, true, true, true, true, true, true, true, true, true, true, false, false]}]

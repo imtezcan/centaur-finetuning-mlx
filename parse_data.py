@@ -6,6 +6,29 @@ def load_jsonl(file_path):
         data = [json.loads(l) for l in f]
     return data
 
+def parse_data_naive(data):
+    experiments = []
+    for row in tqdm(data):
+        text = row['text']
+        # Find the last '\n' before '<<' in text
+        description_end = text.rfind('\n', 0, text.find('<<'))
+        description = text[:description_end]
+        experiment = {'description': description, 'experiment': row['experiment'], 'participant': row['participant'], 'trials': []}
+        rest = text[description_end + 1:]
+        trials = rest.split('\n')
+        for trial in trials:
+            stimulus, _, rest = trial.partition('<<')
+            response, _, result = rest.partition('>>')
+            if response == '':
+                continue
+            else:
+                experiment['trials'].append({'stimulus': stimulus + '<<', 'response': response, 'result': '>>' + result})
+        experiments.append(experiment)
+
+    with open('psych101_test_parsed.jsonl', 'w') as f:
+        f.write(json.dumps(experiments))
+
+
 def parse_data(data):
     experiments = []
     for row in tqdm(data):
@@ -23,14 +46,15 @@ def parse_data(data):
             stimulus = trial[:stimulus_end] + '<<'
             response_end = trial.find('>>')
             response = trial[stimulus_end + 2:response_end]
-            result = '>>' + trial[response_end + 2:]
-            experiment['trials'].append({'stimulus': stimulus, 'response': response, 'result': result})
+            if response == '':
+                continue
+            else:
+                result = '>>' + trial[response_end + 2:]
+                experiment['trials'].append({'stimulus': stimulus, 'response': response, 'result': result})
         experiments.append(experiment)
-    with open('psych101_parsed.jsonl', 'w') as f:
+    with open('psych101_test_parsed.jsonl', 'w') as f:
         f.write(json.dumps(experiments))
 
 
-
-
-jsonl = load_jsonl('./data/psych101.jsonl')
-parse_data(jsonl)
+jsonl = load_jsonl('./data/psych101_test.jsonl')
+parse_data_naive(jsonl)

@@ -56,14 +56,22 @@ def test_prompt(model, tokenizer, experiment):
 
 def test_trials(participant_json):
     # Read jsonl
+    model, tokenizer = load_model()#adapter_path='adapters')
     with open(participant_json, 'r') as f:
-        experiments = json.load(f)
-        for experiment in experiments:
-            model, tokenizer = load_model(adapter_path='adapters')
-            print(f'Experiment: {experiment["experiment"]}, Participant: {experiment["participant"]}')
-            print(f'Description: {experiment["description"]}')
-            test_prompt(model, tokenizer, experiment)
+        participants = json.load(f)
+        results = []
+        for participant in participants[:1]:
+            print(f'Experiment: {participant["experiment"]}, Participant: {participant["participant"]}')
+            print(f'Description: {participant["description"]}')
+            participant_results = {'participant': participant["participant"], 'experiment': participant["experiment"],
+                                   'accuracies': test_prompt(model, tokenizer, participant)}
+            results.append(participant_results)
+
+    with open('psych101_test_results.json', 'w') as f:
+        f.write(json.dumps(results))
+
+
 
 # dummy_csv()
 # test_trials('dummy_trial.jsonl')
-test_trials('psych101_parsed.jsonl')
+test_trials('psych101_test_parsed.jsonl')
