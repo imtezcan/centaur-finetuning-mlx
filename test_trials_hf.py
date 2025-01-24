@@ -51,15 +51,15 @@ def test_trials(participant_json):
     with open(participant_json, 'r') as f:
         participants = json.load(f)
         results = []
-        for participant in participants[:1]:
+        for participant in participants[:5]:
             print(f'Experiment: {participant["experiment"]}, Participant: {participant["participant"]}')
             print(f'Description: {participant["description"]}')
             participant_results = {'participant': participant["participant"], 'experiment': participant["experiment"],
                                    'accuracies': test_prompt(pipe, participant)}
             results.append(participant_results)
 
-            with open('psych101_test_results.jsonl', 'a') as fr:
-                fr.write(json.dumps(participant_results))
+            with open('psych101_test_results_0-5.jsonl', 'a') as fr:
+                fr.write(json.dumps(participant_results) + '\n')
 
 
 

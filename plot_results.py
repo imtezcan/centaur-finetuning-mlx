@@ -10,7 +10,7 @@ def plot_accuracies(file_path, window_size=3):
             participant_id = participant['participant']
             accuracies = pd.Series(participant['accuracies'])
             # Calculate the cumulative sum
-            acc_cumsum = accuracies.cumsum() / (pd.Series(range(1, len(accuracies) + 1)))
+            acc_cumsum = accuracies.cumsum() / (pd.Series(range(window_size, len(accuracies) + 1)))
             # Apply moving average
             smoothed_acc = acc_cumsum.rolling(window=window_size).mean()
 
@@ -19,6 +19,7 @@ def plot_accuracies(file_path, window_size=3):
         plt.ylabel('Accuracy')
         plt.legend()
         plt.title('Accuracy of Participants')
+        plt.savefig('accuracies_50-55.png')
         plt.show()
 
-plot_accuracies('psych101_test_results.jsonl', window_size=5)
+plot_accuracies('psych101_test_results_50-55.jsonl', window_size=5)
